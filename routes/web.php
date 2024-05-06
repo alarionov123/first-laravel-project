@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,5 @@ use App\Http\Controllers\PageController;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('about', [PageController::class, 'about']);
+Route::get('/rating', [RatingController::class, 'index']);
