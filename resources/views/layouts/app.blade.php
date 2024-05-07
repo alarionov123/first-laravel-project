@@ -12,9 +12,6 @@
 <body>
 <header>
     <nav>
-        <div class="logo">
-            <a href="#">Logo</a>
-        </div>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="{{ route('articles.index') }}">Articles</a></li>

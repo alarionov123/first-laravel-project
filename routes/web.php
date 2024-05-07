@@ -19,9 +19,15 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/about', [PageController::class, 'about'])
+Route::get('about', [PageController::class, 'about'])
     ->name('about');
-Route::get('/rating', [RatingController::class, 'index'])
+Route::get('rating', [RatingController::class, 'index'])
     ->name('rating.index');
 Route::get('articles', [ArticleController::class, 'index'])
     ->name('articles.index');
+Route::get('articles/{id}', [ArticleController::class, 'show'])
+    ->name('articles.show');
+
+//Route::get('articles/{articleId}/comments/{id}', function ($articleId, $id) {
+//    // ...
+//});
