@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['name', 'body'];
     public function isPublished()
     {
         return $this->state == 'published';
