@@ -13,4 +13,8 @@ class Article extends Model
     {
         return $this->state == 'published';
     }
+    public function category()
+    {
+        return $this->belongsTo(__NAMESPACE__ . '\ArticleCategory');
+    }
 }
