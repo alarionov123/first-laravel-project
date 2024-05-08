@@ -24,15 +24,22 @@ Route::get('about', [PageController::class, 'about'])
     ->name('about');
 Route::get('rating', [RatingController::class, 'index'])
     ->name('rating.index');
+
 Route::get('articles', [ArticleController::class, 'index'])
     ->name('articles.index');
-Route::get('articles/create', [ArticleController::class, 'create']);
+Route::get('articles/create', [ArticleController::class, 'create'])
+    ->name('articles.create');
 Route::post('articles', [ArticleController::class, 'store'])
     ->name('articles.store');
 Route::get('articles/{id}', [ArticleController::class, 'show'])
     ->name('articles.show');
+
 Route::get('article_categories', [ArticleCategoryController::class, 'index'])
     ->name('article_categories.index');
+Route::get('article_categories/create', [ArticleCategoryController::class, 'create'])
+    ->name('article_categories.create');
+Route::post('article_categories', [ArticleCategoryController::class, 'store'])
+    ->name('article_categories.store');
 Route::get('article_categories/{id}', [ArticleCategoryController::class, 'show'])
     ->name('article_categories.show');
 

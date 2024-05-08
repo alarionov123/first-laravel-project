@@ -2,9 +2,9 @@
 
 @section('content')
     <div>
-        @if (session()->has('Success'))
+        @if (session()->has('success'))
             <div class="alert alert-success">
-                {{ session('Success') }}
+                {{ session('success') }}
             </div>
         @endif
     </div>
@@ -12,6 +12,11 @@
         {{Form::text('q', $q)}}
         {{Form::submit('Найти')}}
     {{Form::close()}}
+
+    <div>
+        <a href="{{ route('articles.create') }}">Create new article</a>
+    </div>
+
     <h1>Список статей</h1>
     @foreach ($articles as $article)
         <a href="{{ route('articles.show', $article->id) }}"><h3>{{$article->name}}</h3></a>

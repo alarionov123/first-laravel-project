@@ -47,8 +47,9 @@ class ArticleController extends Controller
         $article = new Article();
         $article->fill($data);
         $article->save();
-        $request->session()->flash('Success', 'Task was successful!');
+        $request->session()->flash('success', 'Article was added!');
+
         return redirect()
-            ->route('articles.index');
+            ->route('article_categories.index');
     }
 }
