@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        @if (session()->has('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-    </div>
     {{Form::open(['route' => 'articles.index', 'method' => 'GET'])}}
         {{Form::text('q', $q)}}
         {{Form::submit('Найти')}}

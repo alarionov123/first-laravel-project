@@ -10,6 +10,7 @@
         <div class="article_category_list">
             <h2><a href="{{ route('article_categories.show', $category) }}">{{$category->name}}</a></h2>
             <a href="{{ route('article_categories.edit', $category->id) }}">Edit</a>
+            <a href="{{ route('article_categories.destroy', $category->id) }}" data-method="delete" rel="nofollow">Delete</a>
         </div>
 
         <div>{{$category->description}}</div>

@@ -52,7 +52,8 @@ Route::patch('article_categories/{id}', [ArticleCategoryController::class, 'upda
     ->name('article_categories.update');
 Route::get('article_categories/{id}/edit', [ArticleCategoryController::class, 'edit'])
     ->name('article_categories.edit');
-
+Route::delete('article_categories/{id}', [ArticleCategoryController::class, 'destroy'])
+    ->name('article_categories.destroy');
 
 //Route::get('articles/{articleId}/comments/{id}', function ($articleId, $id) {
 //    // ...

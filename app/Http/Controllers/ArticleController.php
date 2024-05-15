@@ -45,10 +45,10 @@ class ArticleController extends Controller
         $article = new Article();
         $article->fill($validated);
         $article->save();
-        $request->session()->flash('success', 'Article was added!');
 
         return redirect()
-            ->route('articles.index');
+            ->route('articles.index')
+            ->with('success', 'Article was added successfully');
     }
 
     public function update(FormValidation $request, $id)
@@ -58,10 +58,10 @@ class ArticleController extends Controller
 
         $article->fill($validated);
         $article->save();
-        $request->session()->flash('success', 'Article was updated!');
 
         return redirect()
-            ->route('articles.index');
+            ->route('articles.index')
+            ->with('success', 'Article was updated successfully');
     }
 
     public function edit($id)
@@ -78,6 +78,7 @@ class ArticleController extends Controller
             $article->delete();
         }
         return redirect()
-            ->route('articles.index');
+            ->route('articles.index')
+            ->with('success', 'Article was deleted successfully');
     }
 }

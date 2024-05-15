@@ -23,6 +23,13 @@
     </nav>
 </header>
 <div class="container mt-4">
+    <div>
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+    </div>
     <h1>@yield('header')</h1>
     <div>
         @yield('content')

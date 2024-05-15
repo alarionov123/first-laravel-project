@@ -36,13 +36,13 @@ class ArticleCategoryController extends Controller
         $category->fill($validated);
         $category->save();
 
-        $request->session()->flash('success', 'Category was added successfully');
-
         return redirect()
-            ->route('article_categories.index');
+            ->route('article_categories.index')
+            ->with('success', 'Category was added successfully');
     }
 
-    public function update(FormValidationArticleCategory $request, $id) {
+    public function update(FormValidationArticleCategory $request, $id)
+    {
         $article_category = ArticleCategory::findOrFail($id);
 
         $validated = $request->validated();
@@ -50,14 +50,27 @@ class ArticleCategoryController extends Controller
         $article_category->fill($validated);
         $article_category->save();
 
-        $request->session()->flash('success', 'Category was update successfully');
         return redirect()
-            ->route('article_categories.index');
+            ->route('article_categories.index')
+            ->with('success', 'Category was update successfully');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $article_category = ArticleCategory::findOrFail($id);
 
         return view('article_category.edit', compact('article_category'));
+    }
+
+    public function destroy($id)
+    {
+        $article_category = ArticleCategory::find($id);
+
+        if ($article_category) {
+            $article_category->delete();
+        }
+        return redirect()
+            ->route('article_categories.index')
+            ->with('success', 'Category was deleted successfully');
     }
 }
