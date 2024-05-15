@@ -43,6 +43,11 @@ Route::post('article_categories', [ArticleCategoryController::class, 'store'])
 Route::get('article_categories/{id}', [ArticleCategoryController::class, 'show'])
     ->name('article_categories.show');
 
+Route::patch('articles/{id}', [ArticleController::class, 'update'])
+    ->name('articles.update');
+Route::get('articles/{id}/edit', [ArticleController::class, 'edit'])
+    ->name('articles.edit');
+
 //Route::get('articles/{articleId}/comments/{id}', function ($articleId, $id) {
 //    // ...
 //});

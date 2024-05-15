@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <a href="{{ route('article_categories.create') }}">Create new article</a>
+        <a href="{{ route('article_categories.create') }}">Create new category</a>
     </div>
 
     <h1>Список категорий статей</h1>
