@@ -17,4 +17,9 @@ class Article extends Model
     {
         return $this->belongsTo(__NAMESPACE__ . '\ArticleCategory');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(__NAMESPACE__ . '\ArticleComment');
+    }
 }
