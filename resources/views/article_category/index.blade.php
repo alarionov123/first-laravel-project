@@ -6,7 +6,7 @@
     </div>
 
     <h1>Список категорий статей</h1>
-    @foreach($articleCategories as $category)
+    @foreach($article_category as $category)
         <div class="article_category_list">
             <h2><a href="{{ route('article_categories.show', $category) }}">{{$category->name}}</a></h2>
             <a href="{{ route('article_categories.edit', $category->id) }}">Edit</a>
