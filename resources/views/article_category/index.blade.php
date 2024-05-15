@@ -7,7 +7,11 @@
 
     <h1>Список категорий статей</h1>
     @foreach($articleCategories as $category)
-        <h2><a href="{{ route('article_categories.show', $category) }}">{{$category->name}}</a></h2>
+        <div class="article_category_list">
+            <h2><a href="{{ route('article_categories.show', $category) }}">{{$category->name}}</a></h2>
+            <a href="{{ route('article_categories.edit', $category->id) }}">Edit</a>
+        </div>
+
         <div>{{$category->description}}</div>
     @endforeach
 @endsection

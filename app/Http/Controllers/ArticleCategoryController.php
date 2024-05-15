@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
+use App\Http\Requests\FormValidationArticleCategory;
 
 class ArticleCategoryController extends Controller
 {
@@ -27,21 +28,36 @@ class ArticleCategoryController extends Controller
         return view('article_category.create', compact('category'));
     }
 
-    public function store(Request $request)
+    public function store(FormValidationArticleCategory $request)
     {
-        $data = $this->validate($request, [
-            'name' => 'required|unique:article_categories|max:100',
-            'description' => 'required|min:200',
-            'state' => 'required|in:D,P'
-        ]);
+        $validated = $request->validated();
 
         $category = new ArticleCategory();
-        $category->fill($data);
+        $category->fill($validated);
         $category->save();
 
         $request->session()->flash('success', 'Category was added successfully');
 
         return redirect()
             ->route('article_categories.index');
+    }
+
+    public function update(FormValidationArticleCategory $request, $id) {
+        $article_category = ArticleCategory::findOrFail($id);
+
+        $validated = $request->validated();
+
+        $article_category->fill($validated);
+        $article_category->save();
+
+        $request->session()->flash('success', 'Category was update successfully');
+        return redirect()
+            ->route('article_categories.index');
+    }
+
+    public function edit($id) {
+        $article_category = ArticleCategory::findOrFail($id);
+
+        return view('article_category.edit', compact('article_category'));
     }
 }

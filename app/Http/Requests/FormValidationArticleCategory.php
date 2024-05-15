@@ -5,9 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FormValidation extends FormRequest
+class FormValidationArticleCategory extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,8 +25,9 @@ class FormValidation extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:articles,name,' . $this->id,
-            'body' => 'required|min:100'
+            'name' => 'required|unique:article_categories,name,' . $this->id,
+            'description' => 'required|min:200',
+            'state' => 'required|in:D,P'
         ];
     }
 }
